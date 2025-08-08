@@ -1,0 +1,16 @@
+{
+  "name": "figma-component-to-code",
+  "version": "1.0.0",
+  "description": "Convert Figma components to code with Claude AI",
+  "main": "dist/code.js",
+  "scripts": {
+    "prebuild": "node -e \"const fs = require('fs'); if (!fs.existsSync('dist')) fs.mkdirSync('dist', { recursive: true });\"",
+    "build": "npx tsc && node -e \"require('fs').copyFileSync('src/ui.html', 'dist/ui.html')\"",
+    "dev": "npx tsc --watch",
+    "clean": "node -e \"const fs = require('fs'); if (fs.existsSync('dist')) fs.rmSync('dist', { recursive: true, force: true });\""
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.88.0",
+    "typescript": "^5.0.0"
+  }
+}
